@@ -6,4 +6,4 @@
 ##########################################################
 #!/bin/bash
 
-gcc run_test.c -static -lcmockery  -I./../lib_cmockery2/include/ -L./../lib_cmockery2/lib/
+gcc run_test.c solution.c -static -lcmockery  -I./../lib_cmockery2/include/ -L./../lib_cmockery2/lib/

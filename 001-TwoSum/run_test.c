@@ -8,14 +8,21 @@
 
 #include "cmockery/cmockery.h"
 
+#include "solution.h"
+
 // A test case that does nothing and succeeds.
-void null_test_success(void **state) {
-    printf("===> func: %s, line: %d\n", __func__, __LINE__);
+void solution_test(void **state) {
+    int nums[4] = {2, 7, 11, 15};
+    int target = 9;
+    int cnt = sizeof(nums) / sizeof(*nums);
+    int ret[2] = {0, 1}; 
+
+    assert_memory_equal(twosum(nums, cnt, target), ret, 2);
 }
 
 int main(int argc, char* argv[]) {
     const UnitTest tests[] = {
-        unit_test(null_test_success),
+        unit_test(solution_test),
     };
     return run_tests(tests, "run");
 }
