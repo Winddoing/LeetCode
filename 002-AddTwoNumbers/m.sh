@@ -6,6 +6,6 @@
 ##########################################################
 #!/bin/bash
 
-gcc run_test.c solution.c -static -lcmockery  -I./../lib_cmockery2/include/ -L./../lib_cmockery2/lib/
+gcc solution.c -static -lcmockery  -I./../lib_cmockery2/include/ -L./../lib_cmockery2/lib/
 
 astyle --style=linux --indent=spaces=4 --convert-tabs --pad-oper --unpad-paren --break-blocks=all -n ./*.c ./*.h

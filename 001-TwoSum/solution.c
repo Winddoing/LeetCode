@@ -18,7 +18,8 @@ static int compare(const void *a, const void *b)
     return ((struct object *) a)->val - ((struct object *) b)->val;
 }
 
-int* twosum(int *nums, int numsSize, int target)
+/* Test execution time: 36ms */
+int* twoSum1(int *nums, int numsSize, int target)
 {
     int i, j;
     struct object *objs = malloc(numsSize * sizeof(*objs));
@@ -51,6 +52,46 @@ int* twosum(int *nums, int numsSize, int target)
 
     return NULL;
 }
+
+/* Test execution time: 76ms */
+int* twoSum2(int* nums, int numsSize, int target)
+{
+    static int a[2] = {0};
+
+    for(int i = 0; i < numsSize - 1; i++) {
+        for(int j = i + 1; j < numsSize; j++) {
+            if(nums[i] + nums[j] == target) {
+                a[0] = i;
+                a[1] = j;
+                return a;
+            }
+        }
+    }
+
+    return 0;
+}
+
+/* Test execution time: 116ms */
+int* twoSum3(int* nums, int numsSize, int target)
+{
+    int *num;
+    int i, j;
+
+    num = (int *)malloc(sizeof(int) * 2);
+
+    for(i = 0; i < numsSize; i++) {
+        for(j = i + 1; j < numsSize; j++) {
+            if(nums[i] + nums[j] == target) {
+                num[0] = i;
+                num[1] = j;
+                return num;
+            }
+        }
+    }
+
+    return 0;
+}
+
 #if 0
 int main(void)
 {
