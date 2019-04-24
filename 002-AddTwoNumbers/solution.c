@@ -44,7 +44,9 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2)
             q = p;
         }
 
-        /*判断l1是否已经指向了一个空节点，这一步很重要， 也很危险，切记不能写成if(l1->next!NULL)这样会产生死循环（l1和l2一直指向最后一个节点）*/
+        /*判断l1是否已经指向了一个空节点，这一步很重要， 也很危险，
+         * 切记不能写成if(l1->next!NULL)
+         * 这样会产生死循环（l1和l2一直指向最后一个节点）*/
         if(l1)
             l1 = l1->next;
 
